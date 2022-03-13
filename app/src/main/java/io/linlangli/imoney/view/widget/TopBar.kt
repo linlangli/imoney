@@ -50,7 +50,7 @@ class TopBar
 
     init {
         val view = LayoutInflater.from(context)
-            .inflate(R.layout.widget_toobar, this)
+            .inflate(R.layout.widget_topbar, this)
     }
 
     override fun onClick(v: View?) {
