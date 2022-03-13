@@ -1,15 +1,15 @@
-package com.linlangli.pangtouyu.view.activity
+package io.linlangli.imoney.view.activity
+
 
 import android.os.Bundle
+import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.Navigation.findNavController
-import com.linlangli.pangtouyu.utils.SharePer
-import com.linlangli.pangtouyu.viewmodel.BaseViewModel
-
+import io.linlangli.imoney.viewmodel.BaseViewModel
 
 abstract class BaseActivity<DB : ViewDataBinding> : AppCompatActivity() {
 
@@ -28,7 +28,6 @@ abstract class BaseActivity<DB : ViewDataBinding> : AppCompatActivity() {
         initVM()
         iniData()
         iniView()
-        SharePer.set(this, "name", mapOf("1" to "test", "ted" to "test"))
     }
 
     abstract fun layoutId() : Int
@@ -48,6 +47,14 @@ abstract class BaseActivity<DB : ViewDataBinding> : AppCompatActivity() {
     }
 
     fun <T : BaseViewModel> getVM(clazz : Class<T>) : T
-        = ViewModelProvider(this).get(clazz)
+            = ViewModelProvider(this).get(clazz)
 
+    fun addToolBar(toolbar: ViewGroup?) {
+        toolbar?.layoutParams = ViewGroup.LayoutParams(
+            ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+        val view = binder.root
+        if(view is ViewGroup) {
+            view.addView(toolbar)
+        }
+    }
 }

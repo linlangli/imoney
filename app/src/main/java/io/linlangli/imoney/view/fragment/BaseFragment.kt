@@ -1,4 +1,5 @@
-package com.linlangli.pangtouyu.view.fragment
+package io.linlangli.imoney.view.fragment
+
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,8 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
-import com.linlangli.pangtouyu.viewmodel.BaseViewModel
-import com.linlangli.walleter.utils.Loger
+import io.linlangli.imoney.viewmodel.BaseViewModel
 
 abstract class BaseFragment<DB : ViewDataBinding> : Fragment() {
 
@@ -29,17 +29,16 @@ abstract class BaseFragment<DB : ViewDataBinding> : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        Loger.d("test branch")
         initVM()
         iniData()
-        iniView()
+        iniView(binder.root)
     }
 
     abstract fun layoutId() : Int
 
     abstract fun initVM()
 
-    abstract fun iniView()
+    abstract fun iniView(view : View)
 
     abstract fun iniData()
 

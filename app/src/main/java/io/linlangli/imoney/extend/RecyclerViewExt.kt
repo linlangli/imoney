@@ -1,4 +1,4 @@
-package com.linlangli.pangtouyu.ext
+package io.linlangli.imoney.extend
 
 import android.content.Context
 import androidx.recyclerview.widget.LinearLayoutManager

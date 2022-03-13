@@ -14,4 +14,3 @@ dependencyResolutionManagement {
 }
 rootProject.name = "imoney"
 include ':app'
-include ':pangtouyu'

@@ -1,4 +1,4 @@
-package com.linlangli.pangtouyu.view.adapter
+package io.linlangli.imoney.view.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,12 +7,12 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
 
-open class QuickAdapter (
+class BaseAdapter(
     private val itemList : List<Any>,
     private val itemBr : Int,
     private val variablesMap : HashMap<Int, Any>,
     private var itemType : ItemTypeSetter
-) : RecyclerView.Adapter<QuickAdapter.ViewHolder>() {
+) : RecyclerView.Adapter<BaseAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding : ViewDataBinding =
@@ -60,8 +60,8 @@ open class QuickAdapter (
             this.itemTypeSetter = itemTypeSetter
             return this
         }
-        fun create() : QuickAdapter {
-            return QuickAdapter(itemList, itemBR, variablesMap, itemTypeSetter)
+        fun create() : BaseAdapter{
+            return BaseAdapter(itemList, itemBR, variablesMap, itemTypeSetter)
         }
     }
 
@@ -73,4 +73,3 @@ open class QuickAdapter (
         lateinit var binding : ViewDataBinding
     }
 }
-
